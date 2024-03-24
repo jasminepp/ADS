@@ -1,0 +1,326 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:bibo="http://purl.org/ontology/bibo/"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/"
+    xmlns:dc="http://purl.org/dc/terms/"
+    xmlns:opmv="http://purl.org/net/opmv/ns#"
+    xmlns:repo="http://vocab.bris.ac.uk/data/repository#"
+    xmlns:dctypes="http://purl.org/dc/dcmitype/"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+  <rdf:Description rdf:about="repo:8gccwpx47rav19vk8x4xapcog">
+    <repo:base-directory>/RDSF_SECURE/cifs-exports/eeijc-craddock-2013/SPHEREIRC</repo:base-directory>
+    <opmv:wasGeneratedBy rdf:parseType="Resource">
+      <opmv:wasStartedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-01T17:57:05.509Z</opmv:wasStartedAt>
+      <opmv:used>uk.ac.bristol.dundry.tasks.SyncTask</opmv:used>
+      <opmv:wasEndedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-01T18:14:13.954Z</opmv:wasEndedAt>
+    </opmv:wasGeneratedBy>
+    <dc:dateSubmitted rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+    >2016-03-01T17:36:02.497Z</dc:dateSubmitted>
+    <opmv:wasGeneratedBy rdf:parseType="Resource">
+      <opmv:wasStartedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-10T10:16:09.85Z</opmv:wasStartedAt>
+      <opmv:used>uk.ac.bristol.dundry.tasks.EnsurePublicPermissions</opmv:used>
+      <opmv:wasEndedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-10T10:16:09.861Z</opmv:wasEndedAt>
+    </opmv:wasGeneratedBy>
+    <dc:alternative>ECML SPHERE Challenge</dc:alternative>
+    <dc:creator>
+      <rdf:Description rdf:about="http://data.bris.ac.uk/people/309640">
+        <rdfs:label>Massimo Camplani</rdfs:label>
+      </rdf:Description>
+    </dc:creator>
+    <opmv:wasGeneratedBy rdf:parseType="Resource">
+      <opmv:wasStartedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-10T10:14:33.048Z</opmv:wasStartedAt>
+      <opmv:used>uk.ac.bristol.dundry.tasks.GenerateApacheIndexes</opmv:used>
+      <opmv:wasEndedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-10T10:14:33.432Z</opmv:wasEndedAt>
+    </opmv:wasGeneratedBy>
+    <dc:creator>
+      <rdf:Description rdf:about="http://data.bris.ac.uk/people/309293">
+        <rdfs:label>Niall Twomey</rdfs:label>
+      </rdf:Description>
+    </dc:creator>
+    <opmv:wasGeneratedBy rdf:parseType="Resource">
+      <opmv:wasStartedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-10T08:25:06.137Z</opmv:wasStartedAt>
+      <opmv:used>uk.ac.bristol.dundry.tasks.GenerateApacheIndexes</opmv:used>
+      <opmv:wasEndedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-10T08:25:06.222Z</opmv:wasEndedAt>
+    </opmv:wasGeneratedBy>
+    <opmv:wasGeneratedBy rdf:parseType="Resource">
+      <opmv:wasStartedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-04T20:30:04.691Z</opmv:wasStartedAt>
+      <opmv:used>uk.ac.bristol.dundry.tasks.GenerateApacheIndexes</opmv:used>
+      <opmv:wasEndedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-04T20:30:04.857Z</opmv:wasEndedAt>
+    </opmv:wasGeneratedBy>
+    <repo:data-steward>
+      <rdf:Description rdf:about="http://data.bris.ac.uk/people/93042">
+        <rdfs:label>Ayde Holley</rdfs:label>
+      </rdf:Description>
+    </repo:data-steward>
+    <dc:language>eng</dc:language>
+    <dc:available>2016-03-01</dc:available>
+    <repo:funder rdf:parseType="Resource">
+      <rdfs:label>EPSRC</rdfs:label>
+    </repo:funder>
+    <opmv:wasGeneratedBy rdf:parseType="Resource">
+      <opmv:wasStartedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-10T10:14:34.082Z</opmv:wasStartedAt>
+      <opmv:used>uk.ac.bristol.dundry.tasks.StateChanger</opmv:used>
+      <opmv:wasEndedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-10T10:14:34.408Z</opmv:wasEndedAt>
+    </opmv:wasGeneratedBy>
+    <opmv:wasGeneratedBy rdf:parseType="Resource">
+      <opmv:wasStartedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-10T08:18:48.201Z</opmv:wasStartedAt>
+      <opmv:used>uk.ac.bristol.dundry.tasks.EnsurePublicPermissions</opmv:used>
+      <opmv:wasEndedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-10T08:18:48.214Z</opmv:wasEndedAt>
+    </opmv:wasGeneratedBy>
+    <dc:creator>
+      <rdf:Description rdf:about="http://data.bris.ac.uk/people/43598">
+        <rdfs:label>Sion Hannuna</rdfs:label>
+      </rdf:Description>
+    </dc:creator>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/Dataset"/>
+    <dc:issued>2016</dc:issued>
+    <dc:creator>
+      <rdf:Description rdf:about="http://data.bris.ac.uk/people/17853">
+        <rdfs:label>Thomas Diethe</rdfs:label>
+      </rdf:Description>
+    </dc:creator>
+    <dc:creator rdf:parseType="Resource">
+      <rdfs:label>Xenofon Fafoutis</rdfs:label>
+    </dc:creator>
+    <opmv:wasGeneratedBy rdf:parseType="Resource">
+      <opmv:wasStartedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-04T11:28:26.835Z</opmv:wasStartedAt>
+      <opmv:used>uk.ac.bristol.dundry.tasks.GenerateApacheIndexes</opmv:used>
+      <opmv:wasEndedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-04T11:28:27.401Z</opmv:wasEndedAt>
+    </opmv:wasGeneratedBy>
+    <dc:creator>
+      <rdf:Description rdf:about="http://data.bris.ac.uk/people/285572">
+        <rdfs:label>Meelis Kull</rdfs:label>
+      </rdf:Description>
+    </dc:creator>
+    <dc:description>Data for the SPHERE Challenge that will take place in conjunction with ECML-PKDD 2016</dc:description>
+    <dc:creator>
+      <rdf:Description rdf:about="http://data.bris.ac.uk/people/309880">
+        <rdfs:label>Ni Zhu</rdfs:label>
+      </rdf:Description>
+    </dc:creator>
+    <repo:project>SPHEREIRC</repo:project>
+    <dc:creator rdf:parseType="Resource">
+      <rdfs:label>Hao Song</rdfs:label>
+    </dc:creator>
+    <opmv:wasGeneratedBy rdf:parseType="Resource">
+      <opmv:wasStartedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-01T17:36:20.795Z</opmv:wasStartedAt>
+      <opmv:used>uk.ac.bristol.dundry.tasks.PreviewSymLinkTask</opmv:used>
+      <opmv:wasEndedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-01T17:36:20.809Z</opmv:wasEndedAt>
+    </opmv:wasGeneratedBy>
+    <dc:creator>
+      <rdf:Description rdf:about="http://data.bris.ac.uk/people/314094">
+        <rdfs:label>Przemyslaw Woznowski</rdfs:label>
+      </rdf:Description>
+    </dc:creator>
+    <opmv:wasGeneratedBy rdf:parseType="Resource">
+      <opmv:wasStartedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-10T08:18:45.701Z</opmv:wasStartedAt>
+      <opmv:used>uk.ac.bristol.dundry.tasks.SyncTask</opmv:used>
+      <opmv:wasEndedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-10T08:18:47.722Z</opmv:wasEndedAt>
+    </opmv:wasGeneratedBy>
+    <opmv:wasGeneratedBy rdf:parseType="Resource">
+      <opmv:wasStartedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-01T18:14:14.28Z</opmv:wasStartedAt>
+      <opmv:used>uk.ac.bristol.dundry.tasks.GenerateApacheIndexes</opmv:used>
+      <opmv:wasEndedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-01T18:20:13.853Z</opmv:wasEndedAt>
+    </opmv:wasGeneratedBy>
+    <opmv:wasGeneratedBy rdf:parseType="Resource">
+      <opmv:wasStartedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-10T10:16:10.22Z</opmv:wasStartedAt>
+      <opmv:used>uk.ac.bristol.dundry.tasks.StateChanger</opmv:used>
+      <opmv:wasEndedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-10T10:16:10.571Z</opmv:wasEndedAt>
+    </opmv:wasGeneratedBy>
+    <repo:state rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Depositing</repo:state>
+    <opmv:wasGeneratedBy rdf:parseType="Resource">
+      <opmv:wasStartedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-04T20:30:05.281Z</opmv:wasStartedAt>
+      <opmv:used>uk.ac.bristol.dundry.tasks.StateChanger</opmv:used>
+      <opmv:wasEndedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-04T20:30:05.438Z</opmv:wasEndedAt>
+    </opmv:wasGeneratedBy>
+    <opmv:wasGeneratedBy rdf:parseType="Resource">
+      <opmv:wasStartedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-10T10:14:33.735Z</opmv:wasStartedAt>
+      <opmv:used>uk.ac.bristol.dundry.tasks.EnsurePublicPermissions</opmv:used>
+      <opmv:wasEndedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-10T10:14:33.751Z</opmv:wasEndedAt>
+    </opmv:wasGeneratedBy>
+    <opmv:wasGeneratedBy rdf:parseType="Resource">
+      <opmv:wasStartedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-10T08:25:06.447Z</opmv:wasStartedAt>
+      <opmv:used>uk.ac.bristol.dundry.tasks.EnsurePublicPermissions</opmv:used>
+      <opmv:wasEndedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-10T08:25:06.469Z</opmv:wasEndedAt>
+    </opmv:wasGeneratedBy>
+    <opmv:wasGeneratedBy rdf:parseType="Resource">
+      <opmv:wasStartedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-04T20:30:05.041Z</opmv:wasStartedAt>
+      <opmv:used>uk.ac.bristol.dundry.tasks.EnsurePublicPermissions</opmv:used>
+      <opmv:wasEndedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-04T20:30:05.122Z</opmv:wasEndedAt>
+    </opmv:wasGeneratedBy>
+    <opmv:wasGeneratedBy rdf:parseType="Resource">
+      <opmv:wasStartedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-01T17:36:20.926Z</opmv:wasStartedAt>
+      <opmv:used>uk.ac.bristol.dundry.tasks.EnsurePublicPermissions</opmv:used>
+      <opmv:wasEndedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-01T17:36:20.929Z</opmv:wasEndedAt>
+    </opmv:wasGeneratedBy>
+    <opmv:wasGeneratedBy rdf:parseType="Resource">
+      <opmv:wasStartedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-10T10:14:32.143Z</opmv:wasStartedAt>
+      <opmv:used>uk.ac.bristol.dundry.tasks.SyncTask</opmv:used>
+      <opmv:wasEndedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-10T10:14:32.68Z</opmv:wasEndedAt>
+    </opmv:wasGeneratedBy>
+    <opmv:wasGeneratedBy rdf:parseType="Resource">
+      <opmv:wasStartedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-10T10:16:09.441Z</opmv:wasStartedAt>
+      <opmv:used>uk.ac.bristol.dundry.tasks.GenerateApacheIndexes</opmv:used>
+      <opmv:wasEndedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-10T10:16:09.516Z</opmv:wasEndedAt>
+    </opmv:wasGeneratedBy>
+    <opmv:wasGeneratedBy rdf:parseType="Resource">
+      <opmv:wasStartedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-10T10:16:08.263Z</opmv:wasStartedAt>
+      <opmv:used>uk.ac.bristol.dundry.tasks.SyncTask</opmv:used>
+      <opmv:wasEndedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-10T10:16:09.138Z</opmv:wasEndedAt>
+    </opmv:wasGeneratedBy>
+    <opmv:wasGeneratedBy rdf:parseType="Resource">
+      <opmv:wasStartedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-04T11:23:29.586Z</opmv:wasStartedAt>
+      <opmv:used>uk.ac.bristol.dundry.tasks.SyncTask</opmv:used>
+      <opmv:wasEndedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-04T11:28:26.275Z</opmv:wasEndedAt>
+    </opmv:wasGeneratedBy>
+    <opmv:wasGeneratedBy rdf:parseType="Resource">
+      <opmv:wasStartedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-10T08:18:48.426Z</opmv:wasStartedAt>
+      <opmv:used>uk.ac.bristol.dundry.tasks.StateChanger</opmv:used>
+      <opmv:wasEndedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-10T08:18:48.645Z</opmv:wasEndedAt>
+    </opmv:wasGeneratedBy>
+    <opmv:wasGeneratedBy rdf:parseType="Resource">
+      <opmv:wasStartedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-10T08:25:05.365Z</opmv:wasStartedAt>
+      <opmv:used>uk.ac.bristol.dundry.tasks.SyncTask</opmv:used>
+      <opmv:wasEndedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-10T08:25:05.92Z</opmv:wasEndedAt>
+    </opmv:wasGeneratedBy>
+    <opmv:wasGeneratedBy rdf:parseType="Resource">
+      <opmv:wasStartedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-01T17:36:20.046Z</opmv:wasStartedAt>
+      <opmv:used>uk.ac.bristol.dundry.tasks.SyncTask</opmv:used>
+      <opmv:wasEndedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-01T17:36:20.733Z</opmv:wasEndedAt>
+    </opmv:wasGeneratedBy>
+    <dc:publisher>University of Bristol</dc:publisher>
+    <opmv:wasGeneratedBy rdf:parseType="Resource">
+      <opmv:wasStartedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-04T20:30:02.976Z</opmv:wasStartedAt>
+      <opmv:used>uk.ac.bristol.dundry.tasks.SyncTask</opmv:used>
+      <opmv:wasEndedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-04T20:30:04.503Z</opmv:wasEndedAt>
+    </opmv:wasGeneratedBy>
+    <opmv:wasGeneratedBy rdf:parseType="Resource">
+      <opmv:wasStartedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-01T17:36:20.829Z</opmv:wasStartedAt>
+      <opmv:used>uk.ac.bristol.dundry.tasks.GenerateApacheIndexes</opmv:used>
+      <opmv:wasEndedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-01T17:36:20.908Z</opmv:wasEndedAt>
+    </opmv:wasGeneratedBy>
+    <opmv:wasGeneratedBy rdf:parseType="Resource">
+      <opmv:wasStartedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-01T18:20:13.864Z</opmv:wasStartedAt>
+      <opmv:used>uk.ac.bristol.dundry.tasks.EnsurePublicPermissions</opmv:used>
+      <opmv:wasEndedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-01T18:28:25.797Z</opmv:wasEndedAt>
+    </opmv:wasGeneratedBy>
+    <dc:source>RDSF_SECURE/cifs-exports/eeijc-craddock-2013/SPHEREIRC/export/Data-Bris/SPHERE_ECML_Challenge</dc:source>
+    <opmv:wasGeneratedBy rdf:parseType="Resource">
+      <opmv:wasStartedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-10T10:18:59.834Z</opmv:wasStartedAt>
+      <opmv:used>uk.ac.bristol.dundry.tasks.SyncTask</opmv:used>
+      <opmv:wasEndedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-10T10:19:00.368Z</opmv:wasEndedAt>
+    </opmv:wasGeneratedBy>
+    <repo:depositor>td6301</repo:depositor>
+    <dc:creator>
+      <rdf:Description rdf:about="http://data.bris.ac.uk/people/12201">
+        <rdfs:label>Ian Craddock</rdfs:label>
+      </rdf:Description>
+    </dc:creator>
+    <opmv:wasGeneratedBy rdf:parseType="Resource">
+      <opmv:wasStartedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-04T11:28:27.955Z</opmv:wasStartedAt>
+      <opmv:used>uk.ac.bristol.dundry.tasks.StateChanger</opmv:used>
+      <opmv:wasEndedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-04T11:28:28.1Z</opmv:wasEndedAt>
+    </opmv:wasGeneratedBy>
+    <opmv:wasGeneratedBy rdf:parseType="Resource">
+      <opmv:wasStartedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-10T08:25:06.726Z</opmv:wasStartedAt>
+      <opmv:used>uk.ac.bristol.dundry.tasks.StateChanger</opmv:used>
+      <opmv:wasEndedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-10T08:25:06.994Z</opmv:wasEndedAt>
+    </opmv:wasGeneratedBy>
+    <opmv:wasGeneratedBy rdf:parseType="Resource">
+      <opmv:wasStartedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-04T11:28:27.535Z</opmv:wasStartedAt>
+      <opmv:used>uk.ac.bristol.dundry.tasks.EnsurePublicPermissions</opmv:used>
+      <opmv:wasEndedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-04T11:28:27.82Z</opmv:wasEndedAt>
+    </opmv:wasGeneratedBy>
+    <opmv:wasGeneratedBy rdf:parseType="Resource">
+      <opmv:wasStartedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-01T17:36:20.939Z</opmv:wasStartedAt>
+      <opmv:used>uk.ac.bristol.dundry.tasks.StateChanger</opmv:used>
+      <opmv:wasEndedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-01T17:36:20.971Z</opmv:wasEndedAt>
+    </opmv:wasGeneratedBy>
+    <dc:title>The SPHERE Challenge: Activity Recognition with Multimodal Sensor Data</dc:title>
+    <opmv:wasGeneratedBy rdf:parseType="Resource">
+      <opmv:wasStartedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-10T08:18:47.941Z</opmv:wasStartedAt>
+      <opmv:used>uk.ac.bristol.dundry.tasks.GenerateApacheIndexes</opmv:used>
+      <opmv:wasEndedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-10T08:18:48.007Z</opmv:wasEndedAt>
+    </opmv:wasGeneratedBy>
+    <dc:creator>
+      <rdf:Description rdf:about="http://data.bris.ac.uk/people/14518">
+        <rdfs:label>Pieter Flach</rdfs:label>
+      </rdf:Description>
+    </dc:creator>
+    <opmv:wasGeneratedBy rdf:parseType="Resource">
+      <opmv:wasStartedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-01T18:28:25.819Z</opmv:wasStartedAt>
+      <opmv:used>uk.ac.bristol.dundry.tasks.StateChanger</opmv:used>
+      <opmv:wasEndedAt rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"
+      >2016-03-01T18:28:25.831Z</opmv:wasEndedAt>
+    </opmv:wasGeneratedBy>
+    <repo:organisation rdf:resource="http://data.bris.ac.uk/orgs/FENG"/>
+  </rdf:Description>
+</rdf:RDF>

@@ -1,0 +1,22 @@
+[  
+   "a_ascend",
+   "a_descend",
+   "a_jump",
+   "a_loadwalk",
+   "a_walk",
+   "p_bent",
+   "p_kneel",
+   "p_lie",
+   "p_sit",
+   "p_squat",
+   "p_stand",
+   "t_bend",
+   "t_kneel_stand",
+   "t_lie_sit",
+   "t_sit_lie",
+   "t_sit_stand",
+   "t_stand_kneel",
+   "t_stand_sit",
+   "t_straighten",
+   "t_turn"
+]
