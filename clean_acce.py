@@ -4,91 +4,159 @@ from scipy.stats import kurtosis
 from scipy import fftpack
 from scipy.signal import resample
 
-import pandas as pd
-import numpy as np
+from sklearn.preprocessing import MinMaxScaler
 
-import pandas as pd
-import numpy as np
+# for i in range(1, 11):  
+#     directory = f'{i:05}' 
+#     file_path = f'train/{directory}/AP_value.csv'
+#     df = pd.read_csv(file_path)
 
-import pandas as pd
-import numpy as np
 
-for i in range(1, 11):  # 从1到10
-    directory = f'{i:05}'  # 格式化为5位数，前面填充0
-    file_path = f'train/{directory}/AP_value.csv'
-    df = pd.read_csv(file_path)
+#     df.replace('', np.nan, inplace=True)
 
-    # 将空值替换为np.nan，便于计算
-    df.replace('', np.nan, inplace=True)
+#     for column in ['Kitchen_AP', 'Lounge_AP', 'Upstairs_AP', 'Study_AP']:
+#         df[column] = pd.to_numeric(df[column]) * -1
 
-    # 将所有AP值转换为数值类型，并取反（因为原始数据是负数）
-    for column in ['Kitchen_AP', 'Lounge_AP', 'Upstairs_AP', 'Study_AP']:
-        df[column] = pd.to_numeric(df[column]) * -1
+#     min_value = df[['Kitchen_AP', 'Lounge_AP', 'Upstairs_AP', 'Study_AP']].min().min()
+#     max_value = df[['Kitchen_AP', 'Lounge_AP', 'Upstairs_AP', 'Study_AP']].max().max()
 
-    # 找到最小和最大的AP值（现在是正数）
-    min_value = df[['Kitchen_AP', 'Lounge_AP', 'Upstairs_AP', 'Study_AP']].min().min()
-    max_value = df[['Kitchen_AP', 'Lounge_AP', 'Upstairs_AP', 'Study_AP']].max().max()
 
-    # 应用缩放公式
-    for column in ['Kitchen_AP', 'Lounge_AP', 'Upstairs_AP', 'Study_AP']:
-        df[column] = (df[column] - min_value) / (max_value - min_value)
+#     for column in ['Kitchen_AP', 'Lounge_AP', 'Upstairs_AP', 'Study_AP']:
+#         df[column] = (df[column] - min_value) / (max_value - min_value)
 
-    # 将空值设为0
-    df.fillna(0, inplace=True)
 
-    # 保留小数点后五位
-    df = df.round(5)
+#     df.fillna(0, inplace=True)
 
-    # 保存处理后的数据
-    output_file_path = f'train/{directory}/AP_value_scaled.csv'
-    df.to_csv(output_file_path, index=False)
-# def approximate_entropy(U, m, r):
-#     """计算近似熵，简化版本"""
-#     def _phi(m):
-#         x = np.array([U[i:i + m] for i in range(N - m + 1)])
-#         C = np.sum(np.max(np.abs(x[:, np.newaxis] - x[np.newaxis, :]), axis=2) <= r, axis=0) / (N - m + 1)
-#         return np.sum(np.log(C)) / (N - m + 1)
-#     N = len(U)
-#     return np.abs(_phi(m + 1) - _phi(m))
 
-# def extract_features(segment):
-#     features = {}
-#     features['x_mean'] = np.mean(segment[:, 0])
-#     features['y_mean'] = np.mean(segment[:, 1])
-#     features['z_mean'] = np.mean(segment[:, 2])
-#     # # 峰度
-#     # features['kurtosis'] = kurtosis(segment, axis=0)
-#     # # 近似熵
-#     # features['approx_entropy'] = np.array([approximate_entropy(segment[:, i], 2, 0.2 * np.std(segment[:, i])) for i in range(segment.shape[1])])
-#     # # FFT前10频率
-#     # fft_vals = fftpack.fft(segment, axis=0)
-#     # fft_freq = fftpack.fftfreq(segment.shape[0])
-#     # top_10_idx = np.argsort(np.abs(fft_vals), axis=0)[-10:]
-#     # features['top_10_freq_by_fft'] = fft_freq[top_10_idx]
-#     # # FFT分布峰度
-#     # features['fft_distribution_kurtosis'] = kurtosis(np.abs(fft_vals), axis=0)
-#     # # 平均急动度
-#     # jerk = np.diff(segment, axis=0)
-#     # features['average_jerk'] = np.mean(np.abs(jerk), axis=0)
-#     # # 平均绝对值
-#     # features['average_absolute_value'] = np.mean(np.abs(segment), axis=0)
-#     # # 平均值
-#     # features['average_value'] = np.mean(segment, axis=0)
-#     # # 中位数
-#     # features['median'] = np.median(segment, axis=0)
-#     # # 标准差
-#     # features['std_dev'] = np.std(segment, axis=0)
-#     # # 最大值
-#     # features['max_value'] = np.max(segment, axis=0)
-#     # # 最小值
-#     # features['min_value'] = np.min(segment, axis=0)
-#     # # 最大绝对值
-#     # features['max_absolute_value'] = np.max(np.abs(segment), axis=0)
+#     df = df.round(5)
+
+#     output_file_path = f'train/{directory}/AP_value_scaled.csv'
+#     df.to_csv(output_file_path, index=False)
+def approximate_entropy(U, m, r):
+    """计算近似熵，简化版本"""
+    def _phi(m):
+        x = np.array([U[i:i + m] for i in range(N - m + 1)])
+        C = np.sum(np.max(np.abs(x[:, np.newaxis] - x[np.newaxis, :]), axis=2) <= r, axis=0) / (N - m + 1)
+        return np.sum(np.log(C)) / (N - m + 1)
+    N = len(U)
+    return np.abs(_phi(m + 1) - _phi(m))
+
+def extract_features(segment,start, end):
+    features = {}
+    features['start']= start
+    features['end'] = end
+    if segment.size == 0:
+        # 例如，为所有特征赋予默认值0或其他合适的值
+        features.update({k: 0 for k in ['x_mean', 'y_mean', 'z_mean', 'x_average_jerk', 'x_average_absolute_value', 'x_median', 'x_std_dev', 'x_max_value', 'x_min_value', 'x_max_absolute_value', 'y_average_jerk', 'y_average_absolute_value', 'y_median', 'y_std_dev', 'y_max_value', 'y_min_value', 'y_max_absolute_value', 'z_average_jerk', 'z_average_absolute_value', 'z_median', 'z_std_dev', 'z_max_value', 'z_min_value', 'z_max_absolute_value', 'xy_corr', 'xz_corr', 'yz_corr']})
+        return features
+    features['x_mean'] = np.mean(segment[:, 0])
+    features['y_mean'] = np.mean(segment[:, 1])
+    features['z_mean'] = np.mean(segment[:, 2])
+    # 平均急动度
+    jerk = np.diff(segment[:, 0])
+    features['x_average_jerk'] = np.mean(np.abs(jerk))
+    # 平均绝对值
+    features['x_average_absolute_value'] = np.mean(np.abs(segment[:, 0]))
+    # 中位数
+    features['x_median'] = np.median(segment[:, 0])
+    # 标准差
+    features['x_std_dev'] = np.std(segment[:, 0])
+    # 最大值
+    features['x_max_value'] = np.max(segment[:, 0])
+    # 最小值
+    features['x_min_value'] = np.min(segment[:, 0])
+    # 最大绝对值
+    features['x_max_absolute_value'] = np.max(np.abs(segment[:, 0]))
+    # 平均急动度
+    jerk = np.diff(segment[:, 1])
+    features['y_average_jerk'] = np.mean(np.abs(jerk))
+    # 平均绝对值
+    features['y_average_absolute_value'] = np.mean(np.abs(segment[:, 1]))
+    # 中位数
+    features['y_median'] = np.median(segment[:, 1])
+    # 标准差
+    features['y_std_dev'] = np.std(segment[:, 1])
+    # 最大值
+    features['y_max_value'] = np.max(segment[:, 1])
+    # 最小值
+    features['y_min_value'] = np.min(segment[:, 1])
+    # 最大绝对值
+    features['y_max_absolute_value'] = np.max(np.abs(segment[:, 1]))
+
+    # 平均急动度
+    jerk = np.diff(segment[:, 2])
+    features['z_average_jerk'] = np.mean(np.abs(jerk))
+    # 平均绝对值
+    features['z_average_absolute_value'] = np.mean(np.abs(segment[:, 2]))
+    # 中位数
+    features['z_median'] = np.median(segment[:, 2])
+    # 标准差
+    features['z_std_dev'] = np.std(segment[:, 2])
+    # 最大值
+    features['z_max_value'] = np.max(segment[:, 2])
+    # 最小值
+    features['z_min_value'] = np.min(segment[:, 2])
+    # 最大绝对值
+    features['z_max_absolute_value'] = np.max(np.abs(segment[:, 2]))
+    # 计算x, y之间的相关性
+    features['xy_corr'] = np.corrcoef(segment[:, 0],segment[:, 1])[0, 1]
+
+    # 计算x, z之间的相关性
+    features['xz_corr'] = np.corrcoef(segment[:, 0], segment[:, 2])[0, 1]
+
+    # 计算y, z之间的相关性
+    features['yz_corr'] = np.corrcoef(segment[:, 1], segment[:, 2])[0, 1]
+
+
+    # # 近似熵
+    # features['xyz_approx_entropy'] = np.array([approximate_entropy(segment[:, i], 2, 0.2 * np.std(segment[:, i])) for i in range(segment.shape[1])])
+        
+    return features
+
+for i in range(1, 11):  
+    directory = f'{i:05}' 
+    accel_path = f'train/{directory}/acceleration.csv'
+    accel_data = pd.read_csv(accel_path)
+    # accel_data = pd.DataFrame([accel_data]) 
+    df_target = pd.read_csv(f'train/{directory}/targets.csv')
+    # accel_data.replace('', np.nan, inplace=True)
     
-#     return features
+    feature = []
+    for _, row in df_target.iterrows():
+        start, end = row['start'], row['end']
+        # 分割数据
+        segment = accel_data[(accel_data['t'] >= start) & (accel_data['t'] <= end)][['x', 'y', 'z']].values
+        
+        df_feature = extract_features(segment,start, end)
 
-# # # 初始化一个空的DataFrame来存储特征
-# # features_df = pd.DataFrame()
+        feature.append(df_feature) 
+
+    # df_feature.replace('', np.nan, inplace=True)
+    df_feature = pd.DataFrame(feature)
+    df_first_two = df_feature.iloc[:, :2]
+    df_to_scale = df_feature.iloc[:, 2:]  
+    scaler = MinMaxScaler(feature_range=(0.001, 1))
+
+    df_scaled = pd.DataFrame(scaler.fit_transform(df_to_scale), columns=df_to_scale.columns)
+    df_scaled = df_scaled.round(5)
+
+    df_scaled = pd.concat([df_first_two, df_scaled], axis=1)
+
+    print(df_scaled.head())
+
+    df_scaled['start'] = df_scaled['start'].astype(float)
+    df_scaled['end'] = df_scaled['end'].astype(float)
+    df_merged = pd.merge(df_target[['start', 'end']], df_scaled, on=['start', 'end'], how='left')
+    df_merged.fillna(0, inplace=True)
+
+
+    filtered_data = df_scaled[df_scaled['start'].isin(df_target['start']) & df_scaled['end'].isin(df_target['end'])]
+
+    df_merged.to_csv( f'train/{directory}/xyz_otherfeature_scaled.csv', index=False)
+
+
+# # 初始化一个空的DataFrame来存储特征
+# features_df = pd.DataFrame()
 # # # # 假设有一个目录列表
 # # # directories = ['train/00001', 'train/00002','train/00003', 'train/00004','train/00005', 'train/00006','train/00007', 'train/00008','train/00009', 'train/00010']  # 示例目录列表
 # directory = 'train/00010'
