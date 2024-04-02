@@ -9,7 +9,7 @@ for i in range(1, 11):
     df_xyz = pd.read_csv(f'train/{directory}/xyz_otherfeature_scaled.csv')
     df_AP = pd.read_csv(f'train/{directory}/AP_value_scaled.csv')
     df_targets = pd.read_csv(f'train/{directory}/targets.csv')
-    output_file = f'train/{directory}/train_stage2.csv'
+    output_file = f'train/{directory}/train_stage3.csv'
 
     def row_to_vector(row):
 
@@ -31,7 +31,8 @@ for i in range(1, 11):
     df_targets = df_targets[['start', 'end', 'target_vector']]
  
     # .merge(df_AP, on=['start', 'end'], how='outer')\
-    df_merged = df_pir.merge(df_video, on=['start', 'end'], how='outer') \
+    df_merged = df_pir.merge(df_AP, on=['start', 'end'], how='outer')\
+                      .merge(df_video, on=['start', 'end'], how='outer') \
                       .merge(df_xyz, on=['start', 'end'], how='outer') \
                       .merge(df_targets, on=['start', 'end'], how='outer')
 
