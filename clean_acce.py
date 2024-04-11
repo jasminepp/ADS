@@ -46,7 +46,6 @@ def extract_features(segment,start, end):
     features['start']= start
     features['end'] = end
     if segment.size == 0:
-        # 例如，为所有特征赋予默认值0或其他合适的值
         features.update({k: 0 for k in ['x_mean', 'y_mean', 'z_mean', 'x_average_jerk', 'x_average_absolute_value', 'x_median', 'x_std_dev', 'x_max_value', 'x_min_value', 'x_max_absolute_value', 'y_average_jerk', 'y_average_absolute_value', 'y_median', 'y_std_dev', 'y_max_value', 'y_min_value', 'y_max_absolute_value', 'z_average_jerk', 'z_average_absolute_value', 'z_median', 'z_std_dev', 'z_max_value', 'z_min_value', 'z_max_absolute_value', 'xy_corr', 'xz_corr', 'yz_corr']})
         return features
     features['x_mean'] = np.mean(segment[:, 0])
@@ -133,26 +132,26 @@ for i in range(1, 11):
 
     # df_feature.replace('', np.nan, inplace=True)
     df_feature = pd.DataFrame(feature)
-    df_first_two = df_feature.iloc[:, :2]
-    df_to_scale = df_feature.iloc[:, 2:]  
-    scaler = MinMaxScaler(feature_range=(0.001, 1))
+    # df_first_two = df_feature.iloc[:, :2]
+    # df_to_scale = df_feature.iloc[:, 2:]  
+    # scaler = MinMaxScaler(feature_range=(0.001, 1))
 
-    df_scaled = pd.DataFrame(scaler.fit_transform(df_to_scale), columns=df_to_scale.columns)
-    df_scaled = df_scaled.round(5)
+    # df_scaled = pd.DataFrame(scaler.fit_transform(df_to_scale), columns=df_to_scale.columns)
+    # df_scaled = df_scaled.round(5)
 
-    df_scaled = pd.concat([df_first_two, df_scaled], axis=1)
+    # df_scaled = pd.concat([df_first_two, df_scaled], axis=1)
 
-    print(df_scaled.head())
+    # print(df_scaled.head())
 
-    df_scaled['start'] = df_scaled['start'].astype(float)
-    df_scaled['end'] = df_scaled['end'].astype(float)
-    df_merged = pd.merge(df_target[['start', 'end']], df_scaled, on=['start', 'end'], how='left')
-    df_merged.fillna(0, inplace=True)
+    # df_scaled['start'] = df_scaled['start'].astype(float)
+    # df_scaled['end'] = df_scaled['end'].astype(float)
+    # df_merged = pd.merge(df_target[['start', 'end']], df_scaled, on=['start', 'end'], how='left')
+    # df_merged.fillna(0, inplace=True)
 
 
-    filtered_data = df_scaled[df_scaled['start'].isin(df_target['start']) & df_scaled['end'].isin(df_target['end'])]
+    # filtered_data = df_scaled[df_scaled['start'].isin(df_target['start']) & df_scaled['end'].isin(df_target['end'])]
 
-    df_merged.to_csv( f'train/{directory}/xyz_otherfeature_scaled.csv', index=False)
+    df_feature.to_csv( f'train/{directory}/xyz_otherfeature.csv', index=False)
 
 
 # # 初始化一个空的DataFrame来存储特征

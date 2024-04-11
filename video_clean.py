@@ -13,32 +13,32 @@ for i in range(1, 11):
     directory = f'{i:05}' 
     file_path = f'train/{directory}/video_feature.csv'
     df = pd.read_csv(file_path)
-    df.drop('3d_shape_mean_depth', axis=1, inplace=True)
+    # df.drop('3d_shape_mean_depth', axis=1, inplace=True)
     # 去除最后一列
-    df_first_two = df.iloc[:, :2]
-    df_to_scale = df.iloc[:, 2:]   
-    df_to_scale =  df_to_scale.iloc[:, :-1]
+    # df_first_two = df.iloc[:, :2]
+    # df_to_scale = df.iloc[:, 2:]   
+    df =  df.iloc[:, :-1]
  
-    scaler = MinMaxScaler(feature_range=(0.001, 1))
+    # scaler = MinMaxScaler(feature_range=(0.001, 1))
 
 
-    df_scaled = pd.DataFrame(scaler.fit_transform(df_to_scale), columns=df_to_scale.columns)
-    df_scaled = df_scaled.round(5)
+    # df_scaled = pd.DataFrame(scaler.fit_transform(df_to_scale), columns=df_to_scale.columns)
+    # df_scaled = df_scaled.round(5)
    
-    df_scaled = pd.concat([df_first_two, df_scaled], axis=1)
+    # df_scaled = pd.concat([df_first_two, df_scaled], axis=1)
 
-    print(df_scaled.head())
+    # print(df_scaled.head())
 
-    df_target = pd.read_csv(f'train/{directory}/targets.csv')
-    df_scaled['start'] = df_scaled['start'].astype(float)
-    df_scaled['end'] = df_scaled['end'].astype(float)
-    df_merged = pd.merge(df_target[['start', 'end']], df_scaled, on=['start', 'end'], how='left')
-    df_merged.fillna(0, inplace=True)
+    # df_target = pd.read_csv(f'train/{directory}/targets.csv')
+    # df_scaled['start'] = df_scaled['start'].astype(float)
+    # df_scaled['end'] = df_scaled['end'].astype(float)
+    # df_merged = pd.merge(df_target[['start', 'end']], df_scaled, on=['start', 'end'], how='left')
+    # df_merged.fillna(0, inplace=True)
 
 
-    filtered_data = df_scaled[df_scaled['start'].isin(df_target['start']) & df_scaled['end'].isin(df_target['end'])]
+    # filtered_data = df_scaled[df_scaled['start'].isin(df_target['start']) & df_scaled['end'].isin(df_target['end'])]
 
-    df_merged.to_csv( f'train/{directory}/video_feature_scaled.csv', index=False)
+    df.to_csv( f'train/{directory}/video_feature.csv', index=False)
 # df = pd.read_csv('train/00010/video_combined_filtered.csv')
 
 
