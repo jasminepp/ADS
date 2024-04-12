@@ -15,7 +15,7 @@ for i in range(1, 11):
     # df_AP = pd.read_csv(f'train/{directory}/AP_value.csv')
     df_xyz = pd.read_csv(f'train/{directory}/acceleration_clean.csv')
     df_pir = pd.read_csv(f'train/{directory}/pir_clean_filled_update.csv')
-    df_video = pd.read_csv(f'train/{directory}/video_feature.csv')
+    # df_video = pd.read_csv(f'train/{directory}/video_feature.csv')
     df_targets = pd.read_csv(f'train/{directory}/targets.csv')
     output_file = f'train/{directory}/train_stage1.csv'
 
@@ -47,8 +47,8 @@ for i in range(1, 11):
     df_targets = df_targets[['start', 'end', 'target_vector']]
  
     # .merge(df_AP, on=['start', 'end'], how='outer')\
-    df_merged = df_pir.merge(df_video, on=['start', 'end'], how='outer') \
-                      .merge(df_xyz, on=['start', 'end'], how='outer') \
+    # merge(df_video, on=['start', 'end'], how='outer') \
+    df_merged = df_pir.merge(df_xyz, on=['start', 'end'], how='outer') \
                       .merge(df_targets, on=['start', 'end'], how='outer')
 
     df_merged.to_csv(output_file, index=False)
