@@ -10,6 +10,7 @@ from pathlib import Path
 datasets = []
 for i in range(1, 11):
     df = pd.read_csv(f'train/{i:05d}/train_stage0.csv')
+    df.fillna(0, inplace=True)
     df['location_idx'] = df['location_idx'].apply(ast.literal_eval)    
     df['target_vector'] = df['target_vector'].apply(ast.literal_eval) 
 
@@ -22,12 +23,11 @@ for i in range(1, 11):
     
     target_df = pd.DataFrame(df['target_vector'].apply(set_max_to_one).tolist(), index=df.index)
     location_df = pd.DataFrame(df['location_idx'].apply(set_list).tolist(), index=df.index)
-    # print(location_df)
+ 
     features_df = df.drop(columns=['start', 'end', 'location_idx','target_vector'])
     for i in range(0, 9):
         features_df[str(i)] = location_df[i]
 
-    # print(features_df)
     datasets.append((features_df, target_df))
 kf = KFold(n_splits=5, shuffle=True, random_state=43)
 
@@ -56,4 +56,5 @@ for train_index, test_index in kf.split(datasets):
     print(f'brier score = {brier_score}.')
     brier_scores.append(brier_score)
 
-print(f'Stage1 Average score across all folds: {np.mean(brier_scores)}')
+print(f'Stage0 Average score across all folds: {np.mean(brier_scores)}')
+pd.DataFrame(model_importance).to_csv('rf_stage0_feature_importance.csv')
