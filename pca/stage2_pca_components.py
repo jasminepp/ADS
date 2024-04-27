@@ -16,7 +16,7 @@ for i in range(1, 11):
         return [1 if value == max_value else 0 for value in target_list]
     
     target_df = pd.DataFrame(df['target_vector'].apply(set_max_to_one).tolist(), index=df.index)
-    features_df = df.drop(columns=['start', 'end', 'target_vector'])
+    features_df = df.drop(columns=['start', 'end', 'location_idx', 'target_vector'])
     datasets.append((features_df, target_df))
 
 X = pd.concat([datasets[i][0] for i in range(len(datasets))], ignore_index=True)

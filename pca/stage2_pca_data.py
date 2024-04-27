@@ -12,8 +12,8 @@ for i in range(1, 11):
     df = pd.read_csv(f'train/{i:05d}/train_stage2.csv')
     df.fillna(0, inplace=True)
     
-    pca = PCA(n_components=30)
-    X = df.drop(['start', 'end', 'target_vector'], axis=1)
+    pca = PCA(n_components=29)
+    X = df.drop(['start', 'end', 'location_idx', 'target_vector'], axis=1)
 
     scaler = StandardScaler()
     X_scaled = scaler.fit_transform(X)
@@ -22,7 +22,7 @@ for i in range(1, 11):
     feature_df = pd.concat([df[['start', 'end']], new_X_df], axis=1)
     # feature_df.columns = ['start', 'end', 'feature1', 'feature2']
 
-    df_merged = feature_df.merge(df[['start', 'end', 'target_vector']], how='outer')
+    df_merged = feature_df.merge(df[['start', 'end', 'location_idx', 'target_vector']], how='outer')
 
     df_merged.to_csv(output_file, index=False)
     print(f'Merged file saved as {output_file}')

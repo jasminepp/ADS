@@ -8,7 +8,7 @@ from sklearn.metrics import brier_score_loss
 
 datasets = []
 for i in range(1, 11):
-    df = pd.read_csv(f'train/{i:05d}/train_stage3_pca.csv')
+    df = pd.read_csv(f'train/{i:05d}/train_stage2_pca.csv')
     df['target_vector'] = df['target_vector'].apply(ast.literal_eval) 
     
     def set_max_to_one(target_list):
