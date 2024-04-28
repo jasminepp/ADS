@@ -60,8 +60,13 @@ class_names = [
 ]
 
 fig, axes = plt.subplots(nrows=2, ncols=2, figsize=(20, 16))
+fig.suptitle('ROC of Random Forest with Stage 2 Data (5 Fold)', y=1, fontsize=20)
+
+# plt.subplots_adjust(left=0.1, right=0.9, top=0.9, bottom=0.5, hspace=0.5, wspace=0.5)
 
 ax_index = 0
+
+
 
 # 每五个类别绘制一个图
 for i in range(0, len(all_y_true), 5):
@@ -73,6 +78,7 @@ for i in range(0, len(all_y_true), 5):
 
         specificity = 1 - fpr
         ax.plot(specificity, tpr, label=f'{class_names[c]} (area = {auc(fpr, tpr):.2f})')
+
 
     ax.plot([0, 1], [1, 0], 'k--') 
     ax.set_xlim([1.0, 0.0])  

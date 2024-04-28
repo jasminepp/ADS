@@ -35,6 +35,11 @@ pca = PCA().fit(X_scaled)
 # plt.grid(True)
 # plt.show()
 
+n_comp = list(range(1, len(pca.explained_variance_ratio_)+1))
+ratio = pca.explained_variance_ratio_.cumsum()
+comp_analysis = pd.DataFrame({'Number of Components': n_comp, 'Explained Variance Ratio': ratio})
+comp_analysis.to_csv('pca/pca_components_analysis.csv', index=False)
+
 n_components = next(i for i, cumsum in enumerate(pca.explained_variance_ratio_.cumsum(), 1) if cumsum > 0.99)
 print(f'Number of components to keep for 99% variance: {n_components}')
 
