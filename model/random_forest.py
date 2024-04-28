@@ -5,10 +5,12 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.multioutput import MultiOutputClassifier
 import ast
 from sklearn.metrics import brier_score_loss
-
+import matplotlib.pyplot as plt
+from sklearn.metrics import roc_curve, auc
+import pickle
 datasets = []
 for i in range(1, 11):
-    df = pd.read_csv(f'train/{i:05d}/train_stage1.csv')
+    df = pd.read_csv(f'train/{i:05d}/train_stage2.csv')
     df['target_vector'] = df['target_vector'].apply(ast.literal_eval) 
     
     # target_vector max to 1 other to 0
@@ -23,7 +25,8 @@ kf = KFold(n_splits=5, shuffle=True, random_state=42)
 
 
 brier_scores = []
-
+all_y_true = [[] for _ in range(20)]
+all_y_scores = [[] for _ in range(20)]
 for train_index, test_index in kf.split(datasets):
 
     X_train = pd.concat([datasets[i][0] for i in train_index], ignore_index=True)
@@ -39,11 +42,19 @@ for train_index, test_index in kf.split(datasets):
     
 
     y_prob = model.predict_proba(X_test)
+ 
+    for c in range(y_test.shape[1]):
+        all_y_true[c].extend(y_test.iloc[:, c])
+        all_y_scores[c].extend(y_prob[c][:, 1])
     brier_score = np.mean([brier_score_loss(y_test.iloc[:, c], y_prob[c][:, 1], pos_label=1) for c in range(y_test.shape[1])])
     # print(f'brier_score: {brier_score}')
     brier_scores.append(brier_score)
+# 保存数据
+with open('all_y_true.pkl', 'wb') as f:
+    pickle.dump(all_y_true, f)
 
-
+with open('all_y_scores.pkl', 'wb') as f:
+    pickle.dump(all_y_scores, f)
 print(f'Stage2 Average score across all folds: {np.mean(brier_scores)}')
 
 

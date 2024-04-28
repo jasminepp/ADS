@@ -26,22 +26,22 @@ class LSTMModel(nn.Module):
     def forward(self, x):
         lstm_out, _ = self.lstm(x)
         y_pred = self.fc(lstm_out[:, -1, :])
-        y_pred = F.softmax(y_pred, dim=1)  # 应用softmax激活函数
+        y_pred = F.softmax(y_pred, dim=1)  
         return y_pred
 
 def create_sliding_windows(data, sequence_length, step=10):
     X, y = [], []
-    for i in range(0, len(data[0]) - sequence_length, step):  # 修改步长为5
+    for i in range(0, len(data[0]) - sequence_length, step):  
         X.append(data[0][i:i+sequence_length])
         y.append(data[1][i+sequence_length-1])
     return np.array(X), np.array(y)
 
-# 数据预处理和加载
-sequence_length = 5 # 定义时间窗口大小
+
+sequence_length = 5 
 step =1
 datasets = []
 for i in range(1, 11):
-    df = pd.read_csv(f'./train/{i:05d}/train_stage3.csv')
+    df = pd.read_csv(f'./train/{i:05d}/train_stage2.csv')
     df['target_vector'] = df['target_vector'].apply(ast.literal_eval) 
     
     def set_max_to_one(target_list):
@@ -64,29 +64,27 @@ for train_index, test_index in kf.split(datasets):
     X_test = np.concatenate([datasets[i][0] for i in test_index])
     y_test = np.concatenate([datasets[i][1] for i in test_index])
     
-        # 从训练和测试数据中去掉前两列
+
     X_train = X_train[:, :, 2:]  # 假设数据的形状是 [samples, timesteps, features]
     X_test = X_test[:, :, 2:]
 
-    # 转换为PyTorch张量
+
     X_train_tensor = torch.tensor(X_train, dtype=torch.float32)
     y_train_tensor = torch.tensor(y_train, dtype=torch.float32)
     X_test_tensor = torch.tensor(X_test, dtype=torch.float32)
     y_test_tensor = torch.tensor(y_test, dtype=torch.float32)
-    
-    # 数据加载器
+
     # print(f'X_train_tensor.shape{X_train_tensor.shape}')
     train_loader = DataLoader(TensorDataset(X_train_tensor, y_train_tensor), batch_size=1, shuffle=True)
     test_loader = DataLoader(TensorDataset(X_test_tensor, y_test_tensor), batch_size=1, shuffle=False)
-    
-    # 初始化模型
+
     model = LSTMModel(input_dim=X_train.shape[2], hidden_dim=100, output_dim=y_train.shape[1], num_layers=1)
     criterion = nn.BCELoss()
     optimizer = optim.Adam(model.parameters(), lr=0.0001)
     
 # 训练模型
 model.train()
-for epoch in range(10):  # 运行更多的epoch可能会得到更好的结果
+for epoch in range(10):  
     print(f'current_epoch{epoch}')
     for inputs, labels in train_loader:
         optimizer.zero_grad()
@@ -100,7 +98,7 @@ for epoch in range(10):  # 运行更多的epoch可能会得到更好的结果
 model.eval()
 with torch.no_grad():
     total_loss = 0
-    class_weights = torch.tensor([1.0] * labels.shape[1], dtype=torch.float32)  # 假设每个类别的权重相等
+    class_weights = torch.tensor([1.0] * labels.shape[1], dtype=torch.float32)  
     for inputs, labels in test_loader:
         outputs = model(inputs)
         loss = weighted_brier_score(outputs, labels, class_weights)
